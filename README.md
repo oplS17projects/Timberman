@@ -1,101 +1,64 @@
 # Timberman
 
 ### Statement
-Describe your project. Why is it interesting? Why is it interesting to you personally? What do you hope to learn? 
+
+For this project, we wanted to make something that relates to us personally by making a game.  The project is intented for learning new thing such as creating a game that we both really like because we both have been playing video game as young as we can remember. We hope to learn how we can apply the topics we learned in class into something that we can create for later uses and gain experience using with GitHub for a team project.
 
 ### Analysis
-Explain what approaches from class you will bring to bear on the project.
 
-Be explicit about the techiques from the class that you will use. For example:
+2htdp/image: Will be use for displaying Images/Sprites
+2htdp/universe: Will be use for communication between the user and program
+Rsound: Assist with sounds proccessing 
 
-- Will you use data abstraction? How?
-- Will you use recursion? How?
+- Will you use data abstraction? 
+We will be using a list containing objects to calucate the sprite postion and check for collusion.
+- Will you use recursion? 
+We plan on using recursion to get the random number to generate branches for collusion and as well as input from the player's such as the arrow keys. 
 - Will you use map/filter/reduce? How? 
-- Will you use object-orientation? How?
-- Will you use functional approaches to processing your data? How?
-- Will you use state-modification approaches? How? (If so, this should be encapsulated within objects. `set!` pretty much should only exist inside an object.)
-- Will you build an expression evaluator, like we did in the symbolic differentatior and the metacircular evaluator?
-- Will you use lazy evaluation approaches?
+We plan on using map for dealing with list.
 
-The idea here is to identify what ideas from the class you will use in carrying out your project. 
-
-**Your project will be graded, in part, by the extent to which you adopt approaches from the course into your implementation, _and_ your discussion about this.**
+Collision check for sprites and branch at the same side. The tree is a list of left right and none while sprites can only position left and right. If they are at the same side and the same time, game over.
 
 ### External Technologies
-You are encouraged to develop a project that connects to external systems. For example, this includes systems that:
 
-- retrieve information or publish data to the web
-- generate or process sound
-- control robots or other physical systems
-- interact with databases
-
-If your project will do anything in this category (not only the things listed above!), include this section and discuss.
+- process sound 
+We will be using Rsound to add audio effect/effects unit and a music along when responsing to the user input.
+- retrieve information 
+We might also plan on creating a high score list that stores the user scores into a databse and display it back to the user.
 
 ### Data Sets or other Source Materials
-If you will be working with existing data, where will you get those data from? (Dowload from a website? Access in a database? Create in a simulation you will build? ...)
 
-How will you convert your data into a form usable for your project?  
-
-If you are pulling data from somewhere, actually go download it and look at it before writing the proposal. Explain in some detail what your plan is for accomplishing the necessary processing.
-
-If you are using some other starting materials, explain what they are. Basically: anything you plan to use that isn't code.
+N/A
 
 ### Deliverable and Demonstration
-Explain exactly what you'll have at the end. What will it be able to do at the live demo?
 
-What exactly will you produce at the end of the project? A piece of software, yes, but what will it do? Here are some questions to think about (and answer depending on your application).
-
-Will it run on some data, like batch mode? Will you present some analytical results of the processing? How can it be re-run on different source data?
-
-Will it be interactive? Can you show it working? This project involves a live demo, so interactivity is good.
+For demonstration day, we are planning to have a complete game that is very similar to the orginal game. At the live demo people will be able to test out our game and as well as sounds, music, and highscore will be able to be display in the final demonstration. 
 
 ### Evaluation of Results
-How will you know if you are successful? 
-If you include some kind of _quantitative analysis,_ that would be good.
+
+If we can complete the movement control, add music/sounds, get the highscore system working, and the collusion function to work then we have successful finish our goals for the project.
 
 ## Architecture Diagram
-Upload the architecture diagram you made for your slide presentation to your repository, and include it in-line here.
 
-Create several paragraphs of narrative to explain the pieces and how they interoperate.
+![Alt text](https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.xml#R7VjJkpswEP0aX13smOPEniWHqZqKk0pylEEG1QhECeElX58GSWZ14onJzMU62OLRakG%2Fp%2B4uZvYyPTxylCfPLMJ0ZhnRYWavZpYVOAv4rYCjBFwnkEDMSSQhowHW5BeWoKnRkkS4UJiEBGNUkLwLhizLcCg6GOKc7btmW0ajDpCjGA%2BAdYioRudug38nkUgkvnCNBn%2FCJE703qah7mxQ%2BBpzVmZqx4xlWN5JkXajTIsERWzfguz7mb3kjAk5Sw9LTKu49mJWiKN%2B0Jn9KREphQsTpvXthzOLzUsWw4txnIn2dmf92XLFDtFSO7Q8Kiqv1SyuZnc8TIgAikoOUTBWBMUcpdoOnDemGozIrg9teB%2BBlR273psJfKhwREmcARLCK2EOwJZl4gGlhFa6%2FIoSliKFrtViQ19LTVqOul4yynjt3Dbq0Q1eITh7xdqo5lyDWj6V2ZZQ2jOCeEQENxsoeMiG4m%2BHObxdC1LsPGKWYsGPYKLuOq4jl%2BhDaHlzX%2Bl632jatpWskpaeLU8dJnWQ4pP3RhEwUaIYF8iIXIcR6QbuTHQhBvz4o2Jn7vgn4GcNGIavgRfMCTxlxXTN49kYFqzkoT7qKlUJxGOszXyJ4aiTJoaR5pgiQXbdXDIWM7X0hRF4lBNDrud3GAIyui7kQ6lVvcifHuMyMobH%2F3oyXGvRJ8O8jozg3ci44xwdWwZ5FeTiPFe%2B63a4Mg2rR4n0%2BM8EuVMRdFmk%2FZFIO1NH%2BuJU4U2mzgMRSpzq6uebwuJ9XDbwdMLUCvP%2FWzbQr9Sq3c%2BIZICsZTAsD6U5BC3bFPnEtbnujXA0UhGB0m09zpdFDa8Ih6aCsKy%2BxSuNdIv7E6Y7LEh4qu%2Bqnuv6Piajfh9w6s8uVt9QtBPUcRvaUb1dNXTjpWRim4u57wTNGFR4ZxHMg%2FZwhgXf9N250RpaIdecap3NWyp7gh2LkNXNYIQE2qBiRGw3xVynGN%2FvKaYjmCCANrBF9VAwljPSEgbGBIpYDBTxrYAWwTI%2BZ3kpRtKMlYgoB7dlBomV12K5pZ13EREkjT9kHdN0Pk5FzkBFK1LktO7ndgTvZxb4MFgppKb%2BVsq0xkhafRa4CezdBNZRlOs5IxIKxkrVFBryBhq6KyPCACoLksXw%2F6Wov%2BLceJ74O4TnDXnWJarDsx28mWe4bL6fyca4%2BUBp3%2F8G "Optional title")
 
 ## Schedule
-Explain how you will go from proposal to finished product. 
-
-There are three deliverable milestones to explicitly define, below.
-
-The nature of deliverables depend on your project, but may include things like processed data ready for import, core algorithms implemented, interface design prototyped, etc. 
-
-You will be expected to turn in code, documentation, and data (as appropriate) at each of these stages.
-
-Write concrete steps for your schedule to move from concept to working system. 
 
 ### First Milestone (Sun Apr 9)
-Which portion of the work will be completed (and committed to Github) by this day? 
+
+Basic control and sounds to be working properly.
 
 ### Second Milestone (Sun Apr 16)
-Which portion of the work will be completed (and committed to Github) by this day?  
+
+GUI, algorithm for collusion, and high score list display.
 
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
-What additionally will be completed before the public presentation?
 
-## Group Responsibilities
-Here each group member gets a section where they, as an individual, detail what they are responsible for in this project. Each group member writes their own Responsibility section. Include the milestones and final deliverable.
+Having the game work properly with all the functions and sounds we have planned.
 
-Please use Github properly: each individual must make the edits to this file representing their own section of work.
+### Chhayhout Chhoeu @slenderize
+will work on processing sound and keyboard input/movement for this project. 
 
-**Additional instructions for teams of three:** 
-* Remember that you must have prior written permission to work in groups of three (specifically, an approved `FP3` team declaration submission).
-* The team must nominate a lead. This person is primarily responsible for code integration. This work may be shared, but the team lead has default responsibility.
-* The team lead has full partner implementation responsibilities also.
-* Identify who is team lead.
+### Leangseu Kim @leangseu
+will work on gui and client. 
 
-In the headings below, replace the silly names and GitHub handles with your actual ones.
-
-### Susan Scheme @susanscheme
-will write the....
-
-### Leonard Lambda @lennylambda
-will work on...
-
-### Frank Funktions @frankiefunk 
-Frank is team lead. Additionally, Frank will work on...   
