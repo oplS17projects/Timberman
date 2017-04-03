@@ -40,7 +40,7 @@ If we can complete the movement control, add music/sounds, get the highscore sys
 
 ## Architecture Diagram
 
-![Alt text](Untitled Diagram.png)
+![Alt text](https://github.com/oplS17projects/Timberman/blob/master/Untitled%20Diagram.png)
 
 ## Schedule
 
