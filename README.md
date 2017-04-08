@@ -40,7 +40,7 @@ If we can complete the movement control, add music/sounds, get the highscore sys
 
 ## Architecture Diagram
 
-![Alt text](diagram.png)
+![Alt text](Diagram.png)
 
 ## Schedule
 
