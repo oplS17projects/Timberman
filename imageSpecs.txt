@@ -7,6 +7,7 @@ I personally use gimp to resize the images.
 
 W X H
 
-bg.png			240x360
+bg.png		240x360
 stump.png 	240x60
 title.png 	200x27
+gameover.png	200x30
