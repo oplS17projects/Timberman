@@ -115,7 +115,7 @@ This state has similar implementation to game-start, however, there are more wor
 
 ##### image
 
-!(game-gif)[timberman.gif]
+![game-gif](timberman.gif)
 
 ** plan for the next Milestone is to implement game logic and sounds. **
 
