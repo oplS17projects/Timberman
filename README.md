@@ -117,7 +117,7 @@ This state has similar implementation to game-start, however, there are more wor
 
 ![game-gif](timberman.gif)
 
-** plan for the next Milestone is to implement game logic and sounds. **
+**plan for the next Milestone is to implement game logic and sounds.**
 
 ### Second Milestone (Sun Apr 16)
 
