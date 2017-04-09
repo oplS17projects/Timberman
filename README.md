@@ -119,6 +119,12 @@ This state has similar implementation to game-start, however, there are more wor
 
 **plan for the next Milestone is to implement game logic and sounds.**
 
+Most of the assets that were use in this project are from this [site](http://www.emanueleferonato.com/2015/02/16/create-an-html5-game-like-timberman-in-a-matter-of-minutes-with-mightyeditor/).
+
+Some of those are made using [gimp](https://www.gimp.org/).
+
+Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
+
 ### Second Milestone (Sun Apr 16)
 
 GUI, algorithm for collusion, and high score list display.
