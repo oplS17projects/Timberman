@@ -1,0 +1,12 @@
+This file contain the size of each image in term of pixels.
+I just think it is more eyes pleasing when reading the code.
+You can scale it with the code anyway.
+
+I personally use gimp to resize the images. 
+
+
+W X H
+
+bg.png			240x360
+stump.png 	240x60
+title.png 	200x27
