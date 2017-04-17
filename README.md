@@ -159,7 +159,7 @@ We also have added mouse event in our second milestone where it check if the gam
 ```
 ![game-gif](timberman2.gif)
 
-plan for the next Milestone is to implement better design for sprite/envirnment, sounds , and high score list display.
+Our plans for the next Milestone is to implement a better design for the sprite/envirnment, sounds integrated, high score list database, and some other functions as we see fit.
 
 Sound/Music was taken from [orangefreesounds](http://www.orangefreesounds.com/).
 
