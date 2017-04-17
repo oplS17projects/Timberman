@@ -127,7 +127,7 @@ Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
 
 ### Second Milestone (Sun Apr 16)
 
-![game-gif](timberman.gif)
+![game-gif](timberman2.gif)
 
 plan for the next Milestone is to implement better design for sprite/envirnment, sounds , and high score list display.
 
