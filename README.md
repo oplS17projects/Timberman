@@ -126,7 +126,37 @@ Some of those are made using [gimp](https://www.gimp.org/).
 Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
 
 ### Second Milestone (Sun Apr 16)
+For our second milestone we have accomplished the following function draw trunk, high score, generation for tree algorithm, collision, database, sound, and mouse response. But some of them have not been integrated completely yet, we will soon finish them.
 
+![Alt text](truck-restart.png)
+
+The function below handles the collusion functions for our game. It checkes if the charactor have die or not. if it have then it will mark that the game is over and update the score, bonus time, and enqueue tree. 
+
+```racket
+(define (update-game state)
+  (if (character-die (playing-position state) state)
+      (make-game-over (playing-score state) (playing-position state) (playing-tree state))
+      (make-playing (- (playing-time state) 1)
+                    (playing-score state)
+                    (playing-position state)
+                    (playing-tree state))))
+```
+
+We also have added mouse event in our second milestone where it check if the game state is in game-over or not, if it is then it will check if the user have pressed a button which there is only one button right now (restart). 
+```racket
+(define (mouse-event state x y mouse)
+  (if (game-over? state)
+      (mouse-event/game-over state x y mouse)
+      state))
+
+(define (mouse-event/game-over state x y mouse)
+  (cond
+    ((and (mouse=? mouse "button-down")
+          (< (* (- (* 1/4 WIDTH) play-again-height) SCALE) x) (< (* (- (* 3/4 HEIGHT) play-again-height) SCALE) y)
+          (> (* (+ (* 1/4 WIDTH) play-again-height) SCALE) x) (> (* (+ (* 3/4 HEIGHT) play-again-height) SCALE) y))
+     init-playing)
+    (else (game-over (game-over-score state) (game-over-position state) (game-over-tree state)))))
+```
 ![game-gif](timberman2.gif)
 
 plan for the next Milestone is to implement better design for sprite/envirnment, sounds , and high score list display.
