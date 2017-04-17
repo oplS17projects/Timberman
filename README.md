@@ -157,6 +157,7 @@ We also have added mouse event in our second milestone where it check if the gam
      init-playing)
     (else (game-over (game-over-score state) (game-over-position state) (game-over-tree state)))))
 ```
+Below shows what we have got working so far in this project comapared to us first milestone.
 ![game-gif](timberman2.gif)
 
 Our plans for the next Milestone is to implement a better design for the sprite/envirnment, sounds integrated, high score list database, and some other functions as we see fit.
