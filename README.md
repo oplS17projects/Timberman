@@ -142,7 +142,7 @@ The function below handles the collusion functions for our game. It checkes if t
                     (playing-tree state))))
 ```
 
-We also have added mouse event in our second milestone where it check if the game state is in game-over or not, if it is then it will check if the user have pressed a button which there is only one button right now (restart). 
+We also have added mouse event in our second milestone where it check if the game state is in game-over or not, if it is then it will check if the user have pressed a button which there is only one button right now (restart, but we are planning to add more). Then, it will restart the game to a new state and restart the game once again.
 ```racket
 (define (mouse-event state x y mouse)
   (if (game-over? state)
