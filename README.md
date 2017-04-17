@@ -126,7 +126,7 @@ Some of those are made using [gimp](https://www.gimp.org/).
 Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
 
 ### Second Milestone (Sun Apr 16)
-For our second milestone we have accomplished the following function draw trunk, high score, generation for tree algorithm, collision, database, sound, and mouse response. But some of them have not been integrated completely yet, we will soon finish them.
+For our second milestone we have accomplished the following functions so far draw trunk, high score, generation for tree algorithm, collision, database, sound, and mouse response. But some of them have not been integrated completely yet, we will soon finish them.
 
 ![Alt text](truck-restart.png)
 
