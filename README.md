@@ -40,7 +40,7 @@ If we can complete the movement control, add music/sounds, get the highscore sys
 
 ## Architecture Diagram
 
-![Alt text](Diagram.png)
+![Alt text](assets/images/Diagram.png)
 
 ## Schedule
 
@@ -115,7 +115,7 @@ This state has similar implementation to game-start, however, there are more wor
 
 ##### image
 
-![game-gif](timberman.gif)
+![game-gif](assets/images/timberman.gif)
 
 **plan for the next Milestone is to implement game logic and sounds.**
 
@@ -128,7 +128,7 @@ Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
 ### Second Milestone (Sun Apr 16)
 For our second milestone we have accomplished the following functions so far draw trunk, high score, generation for tree algorithm, collision, database, sound, and mouse response. But some of them have not been integrated completely yet, we will soon finish them.
 
-![Alt text](truck-restart.png)
+![Alt text](assets/images/truck-restart.png)
 
 The function below handles the collusion functions for our game. It checkes if the charactor have die or not. if it have then it will mark that the game is over and update the score, bonus time, and enqueue tree. 
 
@@ -158,7 +158,7 @@ We also have added mouse event in our second milestone where it check if the gam
     (else (game-over (game-over-score state) (game-over-position state) (game-over-tree state)))))
 ```
 Below shows what we have got working so far in this project comapare to the first milestone.
-![game-gif](timberman2.gif)
+![game-gif](assets/images/timberman2.gif)
 
 Our plans for the next Milestone is to implement a better design for the sprite/envirnment, sounds integrated, high score list database, and some other functions as we see fit.
 
