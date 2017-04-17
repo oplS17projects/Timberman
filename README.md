@@ -129,6 +129,7 @@ Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
 
 GUI, algorithm for collusion, and high score list display.
 
+Sound/Music was taken from [orangefreesounds] (http://www.orangefreesounds.com/).
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
 
 Having the game work properly with all the functions and sounds we have planned.
