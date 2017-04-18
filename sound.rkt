@@ -1,4 +1,6 @@
 #lang racket
+;; export
+(provide (all-defined-out))
 
 (require rsound)
 

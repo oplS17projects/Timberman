@@ -1,5 +1,7 @@
 #lang racket
 
+(provide (all-defined-out))
+
 (require db)
 
 (define db (sqlite3-connect #:database "hs.db"
