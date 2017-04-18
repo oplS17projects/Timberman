@@ -5,17 +5,17 @@
 (require rsound)
 
 ;;It currently has lots of restrictions (it insists on 16-bit PCM encoding, for instance).
-(define sound-chopping (rs-read "assets/sounds/Chopping.wav"))
+(define sound-chopping (rs-read "assets/sounds/Chopping-edit.wav"))
 ;(rs-read path)
-(define sound-gameover (rs-read "assets/sounds/Game-over.wav"))
+(define sound-gameover (rs-read "assets/sounds/Game-over-edit.wav"))
 
 ;;(define (sound)
 ;;  (list
 ;;   (list 'chopping (rs-read "Chopping.wav")
 ;;   (list 'gameover (rs-read "Game-over.wav")))))
 
-(define sound-menu (rs-read "assets/sounds/menu.wav"))
-(define sound-ingame (rs-read "assets/sounds/ingame.wav"))
+(define sound-menu (rs-read "assets/sounds/menu-edit.wav"))
+(define sound-ingame (rs-read "assets/sounds/ingame-edit.wav"))
 
 ;;(define music
 ;;  (list
