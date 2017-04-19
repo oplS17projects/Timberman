@@ -13,7 +13,12 @@
 
 (define (update-table name score)
   ;;(query-exec data "insert or replace into hs values('k', 300)"))
-  (query-exec data (concat-string name score)))
+  ;; only update if score get higher
+  (define old-score
+    (query-maybe-value data (~a "select score from hs where name = '" name "'")))
+  (cond ((equal? name "") (query-exec data (concat-string "NO NAME" score)))
+        ((false? old-score) (query-exec data (concat-string name score)))
+        ((> score old-score) (query-exec data (concat-string name score)))))
 
 ;; display score from highest to lowest
 (define (display-score)
@@ -22,3 +27,8 @@
 (define (concat-string name score)
     (~a "insert or replace into hs values('" name "', " score ")"))
 
+;; return list format ((name score) ....)
+(define (get-database-list)
+  (map (lambda (x y) (list x y))
+   (query-list data "select name from hs order by score desc")
+   (query-list data "select score from hs order by score desc")))

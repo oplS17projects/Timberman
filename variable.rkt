@@ -27,8 +27,11 @@
 
 (define play-again (bitmap "assets/images/restartButton.png"))
 
+;; highscore button... need to replace it
+(define highscore-button (bitmap "assets/images/restartButton.png"))
+
 (define play-again-height (/ (image-height play-again) 2))
 
 (define SCALE 1)
 
-(define username "leangseu")
+(define username "")

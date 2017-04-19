@@ -8,18 +8,18 @@
 (define-struct game-start () #:transparent)
 (define-struct playing (time score position tree) #:transparent)
 (define-struct game-over (score position tree sound) #:transparent)
-;; (define-struct highscore () #:transparent)
+(define-struct highscore (current-score) #:transparent)
 
 ;; when timber man is at the left 1/6 and right 5/6
-;;start time is 100
+;;start time is 50
 (define init-playing (make-playing 50 0 1/6 '(0 1 2 3 0 4)))
-
 
 ;;Manipulate data
 (define time-decay 1)
 
+;;Time decay will get faster
 (define (update-playing-time time state)
-  (make-playing (- time (+ time-decay (/ (playing-score state) 50))) (playing-score state) (playing-position state) (playing-tree state)))
+  (make-playing (- time (+ time-decay (/ (playing-score state) 20))) (playing-score state) (playing-position state) (playing-tree state)))
 
 (define (update-playing-position position state)
   (define (add-time time)

@@ -1,7 +1,7 @@
 #lang racket
 
 (provide (all-defined-out))
-(require "world-state.rkt" "gui.rkt" "variable.rkt")
+(require "world-state.rkt" "gui.rkt" "variable.rkt" "database.rkt")
 (require 2htdp/image 2htdp/universe)
 
 ;; Key event
@@ -13,6 +13,7 @@
     [(game-start? state) (key/game-start state key)]
     [(playing?   state) (key/playing   state key)]
     [(game-over? state) (key/game-over state key)]
+    [(highscore? state) (key/highscore state key)]
     (else state)))
 
 (define (key/game-start state key)
@@ -28,22 +29,38 @@
     (else (update-playing-position (playing-position state) state))))
                      
 (define (key/game-over state key)
-  (game-over (game-over-score state) (game-over-position state) (game-over-tree state) 0))
+  (cond ([key=? key " "] init-playing)
+        ([key=? key "h"] (highscore (game-over-score state)))
+        (else
+         (game-over (game-over-score state) (game-over-position state) (game-over-tree state) 0))))
+
+(define (key/highscore state key)
+  (cond ([key=? key " "] init-playing)
+        (else
+         (highscore (highscore-current-score state)))))
 
 ; mouse event
 (define (mouse-event state x y mouse)
-  (if (game-over? state)
-      (mouse-event/game-over state x y mouse)
-      state))
+  (cond ([game-over? state]  (mouse-event/game-over state x y mouse))
+        ;;([highscore? state] (mouse-event/highscore state x y mouse))
+        (else
+         state)))
 
 (define (mouse-event/game-over state x y mouse)
   (cond
     ((and (mouse=? mouse "button-down")
           (< (* (- (* 1/4 WIDTH) play-again-height) SCALE) x) (< (* (- (* 3/4 HEIGHT) play-again-height) SCALE) y)
           (> (* (+ (* 1/4 WIDTH) play-again-height) SCALE) x) (> (* (+ (* 3/4 HEIGHT) play-again-height) SCALE) y))
-     init-playing)
+     (begin (update-table username (game-over-score state))
+            init-playing))
+    ((and (mouse=? mouse "button-down")
+          (< (* (- (* 3/4 WIDTH) play-again-height) SCALE) x) (< (* (- (* 3/4 HEIGHT) play-again-height) SCALE) y)
+          (> (* (+ (* 3/4 WIDTH) play-again-height) SCALE) x) (> (* (+ (* 3/4 HEIGHT) play-again-height) SCALE) y))
+     (begin (update-table username (game-over-score state))
+                          (highscore (game-over-score state))))
     (else (game-over (game-over-score state) (game-over-position state) (game-over-tree state) 0))))
     ;;(else (init-playing))))
+
 
 ;; Tick events
 

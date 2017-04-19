@@ -1,6 +1,5 @@
 #lang racket
 
-;;(require "database.rkt" db)
 (require "gui.rkt" "world-state.rkt" "event-handler.rkt" "variable.rkt")
 (require 2htdp/image 2htdp/universe)
 
