@@ -41,14 +41,14 @@
 
 
 (define (draw-game-over state)
+  (draw-textbox
   (draw-two-button
-   (draw-textbox
    (place-image text-game-over
                 (/ WIDTH 2) (* 1/4 HEIGHT)
                 (draw-timber-man-right (game-over-position state)
                                        (place-image (text (number->string (game-over-score state)) 30 "red")
                                                     (/ WIDTH 2) (* 1/2 HEIGHT)
-                                                    (draw-tree-trunk (game-over-tree state) (draw-ground))))))))
+                                                    (draw-tree-trunk (game-over-tree state) (draw-ground)))))) ""))
  
 
 ;;draw the top high score
