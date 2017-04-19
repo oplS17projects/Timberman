@@ -2,7 +2,8 @@
 
 (require "gui.rkt" "world-state.rkt" "event-handler.rkt" "variable.rkt")
 (require 2htdp/image 2htdp/universe)
-
+(printf "Input your name:\n")
+(change-name (symbol->string (read)))
 ;; Game big-bang
 
 (big-bang (make-game-start)

@@ -42,13 +42,14 @@
 
 (define (draw-game-over state)
   (draw-textbox
-  (draw-two-button
-   (place-image text-game-over
+   (draw-two-button
+    (place-image text-game-over
                 (/ WIDTH 2) (* 1/4 HEIGHT)
                 (draw-timber-man-right (game-over-position state)
                                        (place-image (text (number->string (game-over-score state)) 30 "red")
                                                     (/ WIDTH 2) (* 1/2 HEIGHT)
-                                                    (draw-tree-trunk (game-over-tree state) (draw-ground)))))) ""))
+                                                    (draw-tree-trunk (game-over-tree state) (draw-ground)))))) username))
+
  
 
 ;;draw the top high score
@@ -62,14 +63,15 @@
     (if (> n 0)
         (place-image (text (caar lst) 50 "red")
                      (+ (/ (image-width (text (caar lst) 50 "red")) 2) 25)
-                     (- HEIGHT (* n 60))
+                     (+ 60 (* n 60))
                      (place-image (text (number->string (cadar lst)) 50 "red")
                                   (- WIDTH (/ (image-width (text (number->string (cadar lst)) 25 "red")) 2) 25)
-                                  (- HEIGHT (* n 60))
+                                  (+ 60 (* n 60))
                                   (draw-iter (cdr lst) (- n 1) image)))
         image))
   (define a (get-database-list))
   (define b (draw-current-score (number->string (highscore-current-score state)) background))
+  ;; if the the table is greater than 10, only draw top 10 of them
   (if (> (length a) 10)
       (draw-iter a 10 b)
       (draw-iter a (length a) b)))
@@ -114,8 +116,8 @@
 (define (draw-time-bar time image)
   (place-image
    (overlay/align "left" "middle"
-                 (rectangle 100 20 "outline" "red")
-                 (rectangle time 20 "solid" "red"))
+                 (rectangle 200 20 "outline" "red")
+                 (rectangle (* time 2) 20 "solid" "red"))
    (/ WIDTH 2)
    (* 1/4 HEIGHT)
    image))
@@ -126,8 +128,8 @@
   (place-image
    (overlay/align "left" "middle"
                   username-text
-                  (rectangle (image-width username-text) 30 "outline" "red")
-                  (rectangle (image-width username-text) 30 "solid" "white"))
+                  (rectangle (+ (image-width username-text) 10) 30 "outline" "red")
+                  (rectangle (+ (image-width username-text) 10) 30 "solid" "white"))
    (/ WIDTH 2)
    15
    image))
