@@ -34,4 +34,5 @@
 
 (define SCALE 1)
 
-(define username "")
+;;
+(define-struct username (name) #:transparent)
