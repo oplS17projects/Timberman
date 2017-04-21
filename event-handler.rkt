@@ -28,7 +28,7 @@
     ((key=? key "right")
      (update-playing-position character-pos-right state))
     ;;((key=? key "up") (update-playing-tree (playing-tree state) state))
-    (else (update-playing-position (playing-position state) state))))
+    (else (make-playing (playing-time state) (playing-score state) (playing-position state) (playing-tree state)))))
                      
 (define (key/game-over state key)
   (cond ([key=? key " "] init-playing)
@@ -51,15 +51,14 @@
 (define (mouse-event/game-over state x y mouse)
   (cond
     ((and (mouse=? mouse "button-down")
-          (< (* (- (* 1/4 WIDTH) play-again-height) SCALE) x) (< (* (- (* 3/4 HEIGHT) play-again-height) SCALE) y)
-          (> (* (+ (* 1/4 WIDTH) play-again-height) SCALE) x) (> (* (+ (* 3/4 HEIGHT) play-again-height) SCALE) y))
-     (begin (update-table username (game-over-score state))
-            init-playing))
+          ;; play again
+          (< (* (- (* 1/4 WIDTH) play-again-width) SCALE) x) (< (* (- (* 3/4 HEIGHT) play-again-height) SCALE) y)
+          (> (* (+ (* 1/4 WIDTH) play-again-width) SCALE) x) (> (* (+ (* 3/4 HEIGHT) play-again-height) SCALE) y))
+     init-playing)
     ((and (mouse=? mouse "button-down")
-          (< (* (- (* 3/4 WIDTH) play-again-height) SCALE) x) (< (* (- (* 3/4 HEIGHT) play-again-height) SCALE) y)
-          (> (* (+ (* 3/4 WIDTH) play-again-height) SCALE) x) (> (* (+ (* 3/4 HEIGHT) play-again-height) SCALE) y))
-     (begin (update-table username (game-over-score state))
-                          (highscore (game-over-score state))))
+          (< (* (- (* 3/4 WIDTH) highscore-width) SCALE) x) (< (* (- (* 3/4 HEIGHT) highscore-height) SCALE) y)
+          (> (* (+ (* 3/4 WIDTH) highscore-width) SCALE) x) (> (* (+ (* 3/4 HEIGHT) highscore-height) SCALE) y))
+     (highscore (game-over-score state)))
     (else (game-over (game-over-score state) (game-over-position state) (game-over-tree state) 0))))
     ;;(else (init-playing))))
 

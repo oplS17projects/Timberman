@@ -35,11 +35,17 @@
 (define character-pos-right 3/4)
 
 ;; highscore button... need to replace it
-(define highscore-button (bitmap "assets/images/restartButton.png"))
+(define highscore-button (bitmap "assets/images/highscoreButton.png"))
+
+(define highscore-height (/ (image-height highscore-button) 2))
+(define highscore-width (/ (image-width highscore-button) 2))
 
 (define play-again-height (/ (image-height play-again) 2))
+(define play-again-width (/ (image-width play-again) 2))
 
 (define SCALE 1)
+
+(define dark-blue (make-color 68 132 166))
 
 ;;
 (define username "")

@@ -41,31 +41,32 @@
                                                     (draw-tree-trunk tree (draw-ground))))))
 
 (define (draw-game-over state)
+  (begin (update-table username (game-over-score state))
   (draw-textbox
    (draw-two-button
     (place-image text-game-over
                 (/ WIDTH 2) (* 1/4 HEIGHT)
                 (draw-timber-man (game-over-position state)
-                                       (place-image (text (number->string (game-over-score state)) 30 "red")
+                                       (place-image (text (number->string (game-over-score state)) 60 dark-blue)
                                                     (/ WIDTH 2) (* 1/2 HEIGHT)
-                                                    (draw-tree-trunk (game-over-tree state) (draw-ground)))))) username))
+                                                    (draw-tree-trunk (game-over-tree state) (draw-ground)))))) username)))
 
  
 
 ;;draw the top high score
 (define (draw-highscore state)
   (define (draw-current-score score image)
-    (place-image (text (~a username " : " score) 60 "Blue")
+    (place-image (text (~a username " : " score) 60 "white")
                  (/ WIDTH 2)
                  60
                  image))
   (define (draw-iter lst n image)
     (if (> n 0)
-        (place-image (text (caar lst) 50 "red")
-                     (+ (/ (image-width (text (caar lst) 50 "red")) 2) 25)
+        (place-image (text (caar lst) 50 "white")
+                     (+ (/ (image-width (text (caar lst) 50 "white")) 2) 25)
                      (+ 60 (* n 60))
-                     (place-image (text (number->string (cadar lst)) 50 "red")
-                                  (- WIDTH (/ (image-width (text (number->string (cadar lst)) 25 "red")) 2) 25)
+                     (place-image (text (number->string (cadar lst)) 50 "white")
+                                  (- WIDTH (/ (image-width (text (number->string (cadar lst)) 25 "white")) 2) 25)
                                   (+ 60 (* n 60))
                                   (draw-iter (cdr lst) (- n 1) image)))
         image))
@@ -110,29 +111,29 @@
 
 ;;draw score
 (define (draw-score score image)
-  (place-image (text (number->string score) 30 "red")
-               (- WIDTH 30)
-               30
+  (place-image (text (number->string score) 60 "white")
+               (- WIDTH 60)
+               60
                image))
 
 ;;draw time bar
 (define (draw-time-bar time image)
   (place-image
    (overlay/align "left" "middle"
-                 (rectangle 200 20 "outline" "red")
-                 (rectangle (* time 2) 20 "solid" "red"))
+                 (rectangle 200 20 "outline" dark-blue)
+                 (rectangle (* time 2) 20 "solid" dark-blue))
    (/ WIDTH 2)
    (* 1/4 HEIGHT)
    image))
 
 ;;draw username textbox and letter inside
 (define (draw-textbox image name)
-  (define username-text (text name 40 "red"))
+  (define username-text (text name 40 "white"))
   (place-image
    (overlay/align "middle" "middle"
                   username-text
-                  (rectangle (image-width username-text) 45 "outline" "red")
-                  (rectangle (image-width username-text) 45 "solid" "white"))
+                  (rectangle (image-width username-text) 45 "outline" "white")
+                  (rectangle (image-width username-text) 45 "solid" dark-blue))
    (/ WIDTH 2)
    25
    image))
