@@ -6,25 +6,25 @@ For this project, we wanted to make something that relates to us personally by m
 
 ### Analysis
 
-2htdp/image: Will be use for displaying Images/Sprites
-2htdp/universe: Will be use for communication between the user and program
-Rsound: Assist with sounds proccessing
+2htdp/image: we have use for displaying Images/Sprites
+2htdp/universe: we have use for communication between the user and program
+Rsound: we have used rsound to assist with sounds proccessing
 
 - Will you use data abstraction?
-We will be using a list containing objects to calucate the sprite postion and check for collusion.
+we have used a list containing objects to calucate the sprite postion and check for collusion.
 - Will you use recursion?
-We plan on using recursion to get the random number to generate branches for collusion and as well as input from the player's such as the arrow keys.
+We have used recursion to get the random number to generate branches for collusion and as well as input from the player's such as the arrow keys.
 - Will you use map/filter/reduce? How?
-We plan on using map for dealing with list.
+We have used map for dealing with list.
 
 Collision check for sprites and branch at the same side. The tree is a list of left right and none while sprites can only position left and right. If they are at the same side and the same time, game over.
 
 ### External Technologies
 
 - process sound
-We will be using Rsound to add audio effect/effects unit and a music along when responsing to the user input.
+We have used Rsound to add audio effect/effects unit and a music along when responsing to the user input.
 - retrieve information
-We might also plan on creating a high score list that stores the user scores into a databse and display it back to the user.
+We have created a high score list that stores the user scores into a databse and display it back to the user.
 
 ### Data Sets or other Source Materials
 
@@ -32,11 +32,11 @@ N/A
 
 ### Deliverable and Demonstration
 
-For demonstration day, we are planning to have a complete game that is very similar to the orginal game. At the live demo people will be able to test out our game and as well as sounds, music, and highscore will be able to be display in the final demonstration.
+For demonstration day, we have a complete game that is very similar to the orginal game. At the live demo people will be able to test out our game and as well as sounds, music, and highscore will be able to be display in the final demonstration.
 
 ### Evaluation of Results
 
-If we can complete the movement control, add music/sounds, get the highscore system working, and the collusion function to work then we have successful finish our goals for the project.
+we have completed the movement control, added music/sounds, get the highscore system working, and the collusion function to work. we have successful finish our goals for the project.
 
 ## Architecture Diagram
 
@@ -72,7 +72,7 @@ I seperate the game into 3 states: game-start, playing, game-over.
 
 big-bang would create a world state. It this case, it would call make-game-start states. Then draw get call and check which state to draw.
 
-I also implement key-event that would take input.
+I also implemented key-event that would take input.
 
 ```racket
 (define (key/game-start state key)
@@ -107,9 +107,10 @@ Most of the drawing and key-event are similar to game-start state. The only diff
 
 update-playing-time would decrease the time-bar. When it hit 0, game-over state got call.
 
-There should be extra implement the maximum time player can get and how player can earn more time to infinitely challenge the game. Since I consider those are game logic, I will implement it on next Milestone.
+There should be extra implement the maximum time player can get and how player can earn more time to infinitely challenge the game. Since I consider those are game logic, we have implemented it on next Milestone.
 
 ##### game-over state
+
 
 This state has similar implementation to game-start, however, there are more work to be done. It needs to display current score and compare high score as well.
 
@@ -126,7 +127,7 @@ Some of those are made using [gimp](https://www.gimp.org/).
 Creating gif [mov to gif](https://cloudconvert.com/mov-to-gif).
 
 ### Second Milestone (Sun Apr 16)
-For our second milestone we have accomplished the following functions so far draw trunk, high score, generation for tree algorithm, collision, database, sound, and mouse response. But some of them have not been integrated completely yet, we will soon finish them.
+For our second milestone we have accomplished the following functions so far draw trunk, high score, generation for tree algorithm, collision, database, sound, and mouse response. But some of them have not been integrated completely yet, we have finished them.
 
 ![Alt text](assets/images/truck-restart.png)
 
@@ -143,6 +144,7 @@ The function below handles the collusion functions for our game. It checkes if t
 ```
 
 We also have added mouse event in our second milestone where it check if the game state is in game-over or not, if it is then it will check if the user have pressed a button which there is only one button right now (restart, but we are planning to add more). Then, it will restart the game to a new state and restart the game once again.
+
 ```racket
 (define (mouse-event state x y mouse)
   (if (game-over? state)
@@ -164,12 +166,40 @@ Our plans for the next Milestone is to implement a better design for the sprite/
 
 Sound/Music was taken from [orangefreesounds](http://www.orangefreesounds.com/).
 
-### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
+### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [Mon Apr 24 at Olsen Hall 3rd floor 12n–1250p])
 
-Having the game work properly with all the functions and sounds we have planned.
+Demo Report
+
+We have successful finished this project. We have finished all but one of milestone which was a better design for the sprite/envirnment. Beside that we have completed all of our plans for this project. We have accomplished the second milestone successfully. we have finished adding the sounds integration and high score list database. 
+
+![game-gif](assets/images/timberman3.gif)
+![Alt text](assets/images/highscore.png)
+
+```racket
+(define (update-table name score)
+  (when (equal? name "") (set! name "NO NAME"))
+  ;; only update when the score get higher
+  ;; if name doesn't exist it return false else will also return score
+  (define old-score
+    (query-maybe-value data (~a "select score from hs where name = '" name "'")))
+  (cond ((false? old-score) (query-exec data (~a "insert into hs values('" name "', " score ")")))
+        ((> score old-score) (query-exec data (~a "update hs set score = " score "where name = '" name "'")))))
+        
+        ;; display score from highest to lowest
+(define (display-score)
+  (for ([(name score) (in-query data "select * from hs order by score desc")]) (printf "~a\t: ~a\n" name score)))
+```
+User are asked for a username when the game starts, if no username is inputted then it will be set to "NO NAME". It will only update the highscore by checking if the the hold high score and updating it. Sound is added as well.
+
+As for the highscore, the score is stored on this site [heroku](https://rocky-meadow-57997.herokuapp.com/). 
+
+we have the game working properly with all the functions and sounds we have planned.
 
 ### Chhayhout Chhoeu @slenderize
-will work on processing sound and keyboard input/movement for this project.
+will work on processing sound and database.
 
 ### Leangseu Kim @leangseu
 will work on gui and client.
+
+### Group work
+keyboard input/movement
