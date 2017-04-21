@@ -1,7 +1,7 @@
 #lang racket
 
 (provide (all-defined-out))
-(require "sound.rkt")
+(require "sound.rkt" "variable.rkt")
 
 ;; Creating States
 
@@ -10,9 +10,12 @@
 (define-struct game-over (score position tree sound) #:transparent)
 (define-struct highscore (current-score) #:transparent)
 
-;; when timber man is at the left 1/6 and right 5/6
+;; for animation
+(define-struct chopping (time score position tree sound) #:transparent)
+
+;; when timber man is at the left 1/4 and right 3/4
 ;;start time is 50
-(define init-playing (make-playing 50 0 1/6 '(0 1 2 3 0 4)))
+(define init-playing (make-playing 50 0 character-pos-left '(0 1 2 3 0 4)))
 
 ;;Manipulate data
 (define time-decay 1)
@@ -23,16 +26,16 @@
 
 (define (update-playing-position position state)
   (define (add-time time)
-    (if (> (+ time 5) 100)
+    (if (> (+ time 4) 100)
         100
-        (+ time 5)))
+        (+ time 4)))
   (if (character-die position state)
-      (make-game-over (playing-score state) position (playing-tree state) (sound-gameover))
-      (begin (sound-chopping)
-        (make-playing (add-time (playing-time state))
-                    (+ (playing-score state) 1)
-                    position
-                    (enqueue (playing-tree state))))))
+      (make-game-over (playing-score state) position (playing-tree state) (sound-gameover))        
+      (make-chopping (add-time (playing-time state))
+                      (+ (playing-score state) 1)
+                      position
+                      (enqueue (playing-tree state))
+                      (sound-chopping))))
 
 ;; if character die, game over. Else update score, bonus time, enqueue tree
 (define (update-game state)
@@ -43,6 +46,13 @@
                     (playing-position state)
                     (playing-tree state))))
 
+
+;; back to playing state
+(define (back-to-playing state)
+  (make-playing (chopping-time state)
+                (chopping-score state)
+                (chopping-position state)
+                (chopping-tree state)))
 
 
 ;; Take a list, push the first number out then add 1 number to the end
@@ -62,8 +72,8 @@
 ;; Game logic where character die return true
 (define (character-die position state)
   (cond ((and (= (car (playing-tree state)) 4)
-              (= position 1/6)) #t)
+              (= position character-pos-left)) #t)
         ((and (= (car (playing-tree state)) 3)
-              (= position 5/6)) #t)
+              (= position character-pos-right)) #t)
         ((= (playing-time state) 0) #t)
         (else #f)))
