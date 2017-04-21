@@ -173,9 +173,9 @@ Demo Report
 We have successful finished this project. We have finished all but one of milestone which was a better design for the sprite/envirnment. Beside that we have completed all of our plans for this project. We have accomplished the second milestone successfully. we have finished adding the sounds integration and high score list database. 
 
 ![game-gif](assets/images/timberman3.gif)
-As for the highscore, the score is stored on this site [heroku](https://rocky-meadow-57997.herokuapp.com/). 
 ![Alt text](assets/images/highscore.png)
 
+As for the highscore, the score is stored on this site [heroku](https://rocky-meadow-57997.herokuapp.com/). 
 ```racket
 (define (update-table name score)
   (when (equal? name "") (set! name "NO NAME"))
