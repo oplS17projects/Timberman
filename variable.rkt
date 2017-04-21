@@ -6,6 +6,10 @@
 (define background (bitmap "assets/images/bg.png"))
 
 (define timber-man-right (bitmap "assets/images/character-1.png"))
+(define timber-man-left (bitmap "assets/images/character-2.png"))
+
+(define timber-man-att-right (bitmap "assets/images/character-att-1.png"))
+(define timber-man-att-left (bitmap "assets/images/character-att-2.png"))
 
 (define ground (bitmap "assets/images/stump.png"))
 
@@ -27,6 +31,9 @@
 
 (define play-again (bitmap "assets/images/restartButton.png"))
 
+(define character-pos-left 1/4)
+(define character-pos-right 3/4)
+
 ;; highscore button... need to replace it
 (define highscore-button (bitmap "assets/images/restartButton.png"))
 
@@ -38,4 +45,6 @@
 (define username "")
 
 (define (change-name name)
-  (set! username name))
+  (if (> (string-length name) 10)
+      (set! username (substring name 0 9))
+      (set! username name)))

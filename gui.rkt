@@ -17,6 +17,7 @@
     [(playing? state) (scale SCALE (draw-playing state))]
     [(game-over? state) (scale SCALE (draw-game-over state))]
     [(highscore? state) (scale SCALE (draw-highscore state))]
+    [(chopping? state) (scale SCALE (draw-chopping state))]
     [else (error 'unknown)]))
 
 ;; The game start state with twice of scale of original image
@@ -34,18 +35,17 @@
 
 
 (define (draw-playing-state time score position tree)
-  (draw-timber-man-right position
+  (draw-timber-man position
                          (draw-score score
                                      (draw-time-bar time
                                                     (draw-tree-trunk tree (draw-ground))))))
-
 
 (define (draw-game-over state)
   (draw-textbox
    (draw-two-button
     (place-image text-game-over
                 (/ WIDTH 2) (* 1/4 HEIGHT)
-                (draw-timber-man-right (game-over-position state)
+                (draw-timber-man (game-over-position state)
                                        (place-image (text (number->string (game-over-score state)) 30 "red")
                                                     (/ WIDTH 2) (* 1/2 HEIGHT)
                                                     (draw-tree-trunk (game-over-tree state) (draw-ground)))))) username))
@@ -55,7 +55,7 @@
 ;;draw the top high score
 (define (draw-highscore state)
   (define (draw-current-score score image)
-    (place-image (text (~a "Your score: " score) 60 "Blue")
+    (place-image (text (~a username " : " score) 60 "Blue")
                  (/ WIDTH 2)
                  60
                  image))
@@ -86,9 +86,12 @@
                background))
 
 ;;draw timber man
-(define (draw-timber-man-right position image)
-  (place-image timber-man-right
-               ;; because the ratio of the background is 2:3
+(define (draw-timber-man position image)
+  (define character
+    (if (= position character-pos-right)
+        timber-man-right
+        timber-man-left))
+  (place-image character
                (* position WIDTH)
                (- HEIGHT (image-height ground))
                image))
@@ -124,14 +127,14 @@
 
 ;;draw username textbox and letter inside
 (define (draw-textbox image name)
-  (define username-text (text name 25 "red"))
+  (define username-text (text name 40 "red"))
   (place-image
-   (overlay/align "left" "middle"
+   (overlay/align "middle" "middle"
                   username-text
-                  (rectangle (+ (image-width username-text) 10) 30 "outline" "red")
-                  (rectangle (+ (image-width username-text) 10) 30 "solid" "white"))
+                  (rectangle (image-width username-text) 45 "outline" "red")
+                  (rectangle (image-width username-text) 45 "solid" "white"))
    (/ WIDTH 2)
-   15
+   25
    image))
 
 ;;draw 2 button. Restart and highscore
@@ -142,3 +145,24 @@
                             (* 1/4 WIDTH) (* 3/4 HEIGHT)
                             image)))
 
+
+;;draw chopping
+(define (draw-chopping state)
+  (draw-chopping-man
+   (chopping-position state)
+   (draw-score
+    (chopping-score state)
+    (draw-time-bar (chopping-time state)
+                   (draw-tree-trunk (chopping-tree state) (draw-ground))))))
+
+
+
+(define (draw-chopping-man position image)
+  (define character
+    (if (= position character-pos-right)
+        timber-man-att-right
+        timber-man-att-left))
+  (place-image character
+               (* position WIDTH)
+               (- HEIGHT (image-height ground))
+               image))

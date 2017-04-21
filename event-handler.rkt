@@ -23,8 +23,10 @@
 
 (define (key/playing state key)
   (cond
-    ((key=? key "left")  (update-playing-position 1/6 state))
-    ((key=? key "right")  (update-playing-position 5/6 state))
+    ((key=? key "left")
+     (update-playing-position character-pos-left state))
+    ((key=? key "right")
+     (update-playing-position character-pos-right state))
     ;;((key=? key "up") (update-playing-tree (playing-tree state) state))
     (else (update-playing-position (playing-position state) state))))
                      
@@ -66,10 +68,14 @@
 
 ; tick-event
 (define (tick-event state)
-  (cond ((playing? state) (tick-event/playing state))
-        (else state)))
+  (cond
+    ((playing? state) (tick-event/playing state))
+    ((chopping? state) (tick-event/chopping state))
+    (else state)))
 
 (define (tick-event/playing state)
   ;;(update-playing-time (playing-time state) state))
   (update-game state))
 
+(define (tick-event/chopping state)
+  (back-to-playing state))
