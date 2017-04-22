@@ -175,7 +175,7 @@ We have successful finished this project. We have finished all but one of milest
 ![game-gif](assets/images/timberman3.gif)
 ![Alt text](assets/images/highscore.png)
 
-As for the highscore, the score is stored on this site [heroku](https://rocky-meadow-57997.herokuapp.com/). 
+As for the highscore, we used postgresql and connect it [heroku](https://rocky-meadow-57997.herokuapp.com/) free server.
 ```racket
 (define (update-table name score)
   (when (equal? name "") (set! name "NO NAME"))
@@ -190,7 +190,7 @@ As for the highscore, the score is stored on this site [heroku](https://rocky-me
 (define (display-score)
   (for ([(name score) (in-query data "select * from hs order by score desc")]) (printf "~a\t: ~a\n" name score)))
 ```
-User are asked for a username when the game starts, if no username is inputted then it will be set to "NO NAME". It will only update the highscore by checking if the user hold high score and updating it and as well as it will only update the user score only if it is greater then the user old highscore. Sound is added as well.
+User are prompt for a username when the game starts. It will only update the highscore by checking if the user hold high score and updating it and as well as it will only update the user score only if it is greater then the user old highscore. Sound and chopping animation is also added.
 
 we have the game working properly with all the functions and sounds we have planned.
 ### Chhayhout Chhoeu @slenderize
