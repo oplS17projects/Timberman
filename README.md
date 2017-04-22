@@ -190,7 +190,8 @@ As for the highscore, we used postgresql and connect it [heroku](https://rocky-m
 (define (display-score)
   (for ([(name score) (in-query data "select * from hs order by score desc")]) (printf "~a\t: ~a\n" name score)))
 ```
-User are prompt for a username when the game starts. It will only update the highscore by checking if the user hold high score and updating it and as well as it will only update the user score only if it is greater then the user old highscore. Sound and chopping animation is also added.
+Open _timberma.rkt_ with **DrRacket** and press run.
+Users will be prompted for a name when the game starts. This name will be store in high score database. The score will only update if the user get higher score. Otherwise it will only hold the old high score record. The score is stored on [heroku](https://rocky-meadow-57997.herokuapp.com/). So everyone that play the game will have the same high score board. Sound and chopping animation is also added.
 
 we have the game working properly with all the functions and sounds we have planned.
 ### Chhayhout Chhoeu @slenderize
