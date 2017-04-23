@@ -8,7 +8,7 @@ For this project, we wanted to make something that relates to us personally by m
 
 2htdp/image: we have use for displaying Images/Sprites
 2htdp/universe: we have use for communication between the user and program
-Rsound: we have used rsound to assist with sounds proccessing
+Gui/base: we have used gui/base to assist with sounds proccessing
 
 - Will you use data abstraction?
 we have used a list containing objects to calucate the sprite postion and check for collusion.
@@ -22,9 +22,9 @@ Collision check for sprites and branch at the same side. The tree is a list of l
 
 ### External Technologies
 
-- process sound
+- Process Sound - 
 We have used gui/base to add audio effect/effects unit and a music along when responsing to the user input.
-- retrieve information/publish data to the web
+- Retrieve Information/Publish Data to the Web -
 We have created a high score list that stores the user scores into a databse and display it back to the user. We also have publish the data (highscore) to a website using [heroku](https://rocky-meadow-57997.herokuapp.com/).
 
 ### Data Sets or other Source Materials
