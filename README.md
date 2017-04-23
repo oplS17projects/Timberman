@@ -23,7 +23,7 @@ Collision check for sprites and branch at the same side. The tree is a list of l
 ### External Technologies
 
 - process sound
-We have used Rsound to add audio effect/effects unit and a music along when responsing to the user input.
+We have used gui/base to add audio effect/effects unit and a music along when responsing to the user input.
 - retrieve information/publish data to the web
 We have created a high score list that stores the user scores into a databse and display it back to the user. We also have publish the data (highscore) to a website using [heroku](https://rocky-meadow-57997.herokuapp.com/).
 
