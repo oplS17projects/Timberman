@@ -11,7 +11,7 @@
 (big-bang (make-game-start)
           [on-draw draw]
           [on-key key-event]
-         [on-tick tick-event]
+          [on-tick tick-event]
           [on-mouse mouse-event]
           [name "Timber Man"])
 

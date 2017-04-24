@@ -27,11 +27,11 @@
                background))
 
 (define (draw-playing state)
-  (define time (playing-time state))
-  (define score (playing-score state))
-  (define position (playing-position state))
-  (define tree (playing-tree state))
-  (draw-playing-state time score position tree))
+  ((lambda (w x y z) (draw-playing-state w x y z))
+     (playing-time state)
+     (playing-score state)
+     (playing-position state)
+     (playing-tree state)))
 
 
 (define (draw-playing-state time score position tree)
