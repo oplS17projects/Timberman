@@ -8,23 +8,24 @@ For this project, we wanted to make something that relates to us personally by m
 
 2htdp/image: we have use for displaying Images/Sprites
 2htdp/universe: we have use for communication between the user and program
-Rsound: we have used rsound to assist with sounds proccessing
+Gui/base: we have used gui/base to assist with sounds proccessing
 
 - Will you use data abstraction?
 we have used a list containing objects to calucate the sprite postion and check for collusion.
 - Will you use recursion?
-We have used recursion to get the random number to generate branches for collusion and as well as input from the player's such as the arrow keys.
+We have used recursion to get the random number to generate branches for collusion and as well as input from the player's such as the arrow keys. By using tail recursion on the drawing, it helps the tree improve the efficiency for generating branches.  
 - Will you use map/filter/reduce? How?
 We have used map for dealing with list.
 
-Collision check for sprites and branch at the same side. The tree is a list of left right and none while sprites can only position left and right. If they are at the same side and the same time, game over.
+Lambda enqueue it would generate the wrong number without lambda function.
+Collision check for sprites and branch at the same side. The tree is a list of left right and none while sprites can only position left and right. If they are at the same side and the same time, game over. 
 
 ### External Technologies
 
-- process sound
-We have used Rsound to add audio effect/effects unit and a music along when responsing to the user input.
-- retrieve information
-We have created a high score list that stores the user scores into a databse and display it back to the user.
+- Process Sound - 
+We have used gui/base to add audio effect/effects unit and a music along when responsing to the user input.
+- Retrieve Information/Publish Data to the Web -
+We have created a high score list that stores the user scores into a databse and display it back to the user. We also have publish the data (highscore) to a website using [heroku](https://rocky-meadow-57997.herokuapp.com/).
 
 ### Data Sets or other Source Materials
 
@@ -199,4 +200,4 @@ will work on processing sound and database.
 ### Leangseu Kim @leangseu
 will work on gui and client.
 ### Group work
-keyboard input/movement
+keyboard input/movement.
