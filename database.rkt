@@ -29,11 +29,10 @@
   (for ([(name score) (in-query data "select * from hs order by score desc")]) (printf "~a\t: ~a\n" name score)))
 
 ;; return list format ((name score) ....)
-;; user asending order so recursive print out would reverse this
 (define (get-database-list)
   (map (lambda (x y) (list x y))
-   (query-list data "select name from hs order by score asc")
-   (query-list data "select score from hs order by score asc")))
+   (query-list data "select name from hs order by score desc")
+   (query-list data "select score from hs order by score desc")))
 
 
 
