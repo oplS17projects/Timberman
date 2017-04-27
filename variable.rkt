@@ -43,6 +43,9 @@
 (define play-again-height (/ (image-height play-again) 2))
 (define play-again-width (/ (image-width play-again) 2))
 
+(define right-branch 3)
+(define left-branch 4)
+
 (define SCALE 1)
 
 (define dark-blue (make-color 68 132 166))

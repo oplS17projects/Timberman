@@ -56,12 +56,12 @@
 
 
 ;; Take a list, push the first number out then add 1 number to the end
-;; the logic is the tree can't have the same side twice. Like 4 5 or 5 4
+;; the logic is the tree can't have the same side twice. Like 4 3 or 3 4
 (define (enqueue lst)
   ((lambda (x)
      ;; get the last element of the list
-     (cond ((and (= 3 (caddr (cdddr lst))) (= 4 x)) (enqueue lst))
-           ((and (= 4 (caddr (cdddr lst))) (= 3 x)) (enqueue lst))
+     (cond ((and (= right-branch (caddr (cdddr lst))) (= left-branch x)) (enqueue lst))
+           ((and (= left-branch (caddr (cdddr lst))) (= right-branch x)) (enqueue lst))
            ;; make sure the isn't more than 2 of the same trunk generate
            ((and (> 3 (cadr (cdddr lst))) (> 3 (caddr (cdddr lst))) (> 3 x)) (enqueue lst))
            ((= x (cadr (cdddr lst)) (caddr (cdddr lst))) (enqueue lst))
@@ -71,9 +71,9 @@
          
 ;; Game logic where character die return true
 (define (character-die position state)
-  (cond ((and (= (car (playing-tree state)) 4)
+  (cond ((and (= (car (playing-tree state)) left-branch)
               (= position character-pos-left)) #t)
-        ((and (= (car (playing-tree state)) 3)
+        ((and (= (car (playing-tree state)) right-branch)
               (= position character-pos-right)) #t)
         ((= (playing-time state) 0) #t)
         (else #f)))

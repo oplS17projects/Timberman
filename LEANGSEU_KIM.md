@@ -8,6 +8,16 @@ This is a game that was written in Racket. This game similiar to mobile game. It
 
 The code would recursively retrieve database from and print out the top score. If there is more than 10 people, it will print only 10.
 
+The game client is inside ```Timberman.rkt``` file. Just open it with racket and then run it. It will prompt for the name. The game support keyboard and mouse input.
+
+KEYS:
+```left``` move or stay left
+```right``` move or stay right
+```space``` start the game
+
+MOUSE:
+On game over screen you will be able to click on the Replay and High Score button.
+
 # Libraries Used
 The code uses four libraries:
 
@@ -55,12 +65,12 @@ The following code would take a list. It remove the first element and add 1 rand
 
 ```racket
 ;; Take a list, push the first number out then add 1 number to the end
-;; the logic is the tree can't have the same side twice. Like 4 5 or 5 4
+;; the logic is the tree can't have the same side twice. Like 3 4 or 4 3
 (define (enqueue lst)
   ((lambda (x)
      ;; get the last element of the list
-     (cond ((and (= 3 (caddr (cdddr lst))) (= 4 x)) (enqueue lst))
-           ((and (= 4 (caddr (cdddr lst))) (= 3 x)) (enqueue lst))
+     (cond ((and (= right-branch (caddr (cdddr lst))) (= left-branch x)) (enqueue lst))
+           ((and (= left-branch (caddr (cdddr lst))) (= right-branch x)) (enqueue lst))
            ;; make sure the isn't more than 2 of the same trunk generate
            ((and (> 3 (cadr (cdddr lst))) (> 3 (caddr (cdddr lst))) (> 3 x)) (enqueue lst))
            ((= x (cadr (cdddr lst)) (caddr (cdddr lst))) (enqueue lst))
@@ -174,6 +184,10 @@ When the button is press it would call ```update-playing-position```.
 ```
 
 ```update-playing-position``` return chopping world state, which draw the character chopping tree instead of holding the axe up.
+
+![playing](assets/images/playing.png)
+![chopping](assets/images/chopping.png)
+![playing](assets/images/playing.png)
 
 ```racket
 ;;draw chopping

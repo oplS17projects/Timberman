@@ -31,7 +31,7 @@
     (else (make-playing (playing-time state) (playing-score state) (playing-position state) (playing-tree state)))))
                      
 (define (key/game-over state key)
-  (cond ([key=? key " "] init-playing)
+  (cond ([or (key=? key " ") (key=? key "r")] init-playing)
         ([key=? key "h"] (highscore (game-over-score state)))
         (else
          (game-over (game-over-score state) (game-over-position state) (game-over-tree state) 0))))
