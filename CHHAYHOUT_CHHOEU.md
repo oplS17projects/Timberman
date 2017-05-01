@@ -87,7 +87,7 @@ World state for starting the program.
     ;;(else (init-playing))))
 ```
 
-The universe.rkt teachpack implements and provides the functionality for creating interactive graphical programs. By using MouseEvents, via strings: "button-down" signals that the computer user has pushed a mouse button down. As the game reaches the game-over state, users will be about to click on two button which look like this, ![Alt text](assets/images/highscoreButton.png) and ![Alt text](assets/images/restartButton.png.png). Those two functions will allow the user to view the highscore or restart the game to a different state and initial a new game state.
+The universe.rkt teachpack implements and provides the functionality for creating interactive graphical programs. By using MouseEvents, via strings: "button-down" signals that the computer user has pushed a mouse button down. As the game reaches the game-over state, users will be about to click on two button which look like this, ![Alt text](assets/images/highscoreButton.png) and ![Alt text](assets/images/restartButton.png). Those two functions will allow the user to view the highscore or restart the game to a different state and initial a new game state.
 
 ## 3. External Technologies - Generate or Process sound
 
