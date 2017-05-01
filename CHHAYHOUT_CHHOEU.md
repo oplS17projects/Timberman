@@ -135,5 +135,5 @@ Database can be done offlice by using Sqlite3 and postgreSQL for online database
     (~a "insert or replace into hs values('" name "', " score ")")) 
 ```
 
-Before we use PostgreSQL, we were playing around with SQLite3. Althought we erased it, I just want to put it here. This function act as an offline/local storage for highscore. Which is the same as postgreSQL except it is offline. It will create a list of name and have a score correspondingly to the table. IT will score the highest value/score from highest to lowest. 
+Before we use PostgreSQL, we were playing around with SQLite3. Althought we erased it, I just want to put it here. This function act as an offline/local storage for highscore. Which is the same as postgreSQL except it is offline. It will create a list of name and have a score correspondingly to the table. It will score the highest value/score from highest to lowest. 
 
