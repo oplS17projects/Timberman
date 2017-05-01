@@ -35,9 +35,9 @@ The code uses four libraries:
 
 # Key Code Excerpts
 
-## 1. Using onnecting online database
+## 1. Using online database
 
-The following code is use to connect to postgres on [heroku](https://www.heroku.com/). It only support [postgreSQL](https://www.postgresql.org/) database for free tier.
+The following code is use to connect to postgres on [heroku](https://www.heroku.com/). It only support [postgreSQL](https://www.postgresql.org/) for free tier.
 
 ```racket
 (define data
@@ -49,7 +49,7 @@ The following code is use to connect to postgres on [heroku](https://www.heroku.
    #:password "858a41f4062992060150c844020f8f0b4d98f8bf8c54405896d7fbef858b6f0f"))
 ```
 
-There are instruction how to get these data. You can find it [here](https://devcenter.heroku.com/articles/heroku-postgresql). This is a public project. You shouldnot post all of these data online. It would allow anyone to access your database.
+There are instruction how to get these data. You can find it [here](https://devcenter.heroku.com/articles/heroku-postgresql). This is a public project. You should not post all of these data online. It would allow anyone to access your database.
 
 Once you connect with database, you can do anything all the thing with it. Most use would be:
 
@@ -78,7 +78,7 @@ The following code would take a list. It remove the first element and add 1 rand
    (random 5)))
 ```
 
-Since we represent our tree as a list. It's convenient to check the state of collision and drawing as well. The approch is to make list of tree to draw. We had 5 different tree parts and put it on a list. Thus the branch type would represent 0-4. This specific procedure is use to cut down the tree. Instead of having a long list of tree, we would just remove the bottom tree then add a new tree branch to the top of the tree.
+Since we represent our tree as a list. It's convenient to check the state of collision and drawing as well. The approch is to make list of tree to draw. We had 5 different tree parts and put it on a list. Each branch types would represent with number 0-4. This specific procedure is use to cut down the tree. Instead of having a long list of tree, we would just remove the bottom tree then add a new tree branch to the top of the tree.
 
 ```(caddr (cdddr lst))``` would get the last element of the list. We had 6 elements on the list when the game start. ```(define init-playing (make-playing 50 0 character-pos-left '(0 1 2 3 0 4)))``` Number 3 and 4 would be representing right and left branch. 0, 1 and 2 are the part without branch.
 
